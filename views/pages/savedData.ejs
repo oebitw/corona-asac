@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Saved Data</title>
+    <%- include('../layouts/head') %> 
+
+</head>
+<body>
+
+    <header>
+        <%- include('../layouts/header') %> 
+
+
+    </header>
+
+    <main>
+        <div class="wrap">
+            <% data.forEach(e=>{ %>
+
+                <div class="container">
+                    <h3>
+                        <%= e.country %> 
+                    </h3>
+
+                    <h3>
+                        <%= e.date %> 
+                    </h3>
+
+                    <button> <a href="/details/<%=e.id%>"> Show Details</a></button>
+                </div>
+
+            <%}) %> 
+        </div>
+    </main>
+    
+</body>
+</html>

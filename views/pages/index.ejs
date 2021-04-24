@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Home Page</title>
+
+    <%- include('../layouts/head') %> 
+
+
+</head>
+<body>
+
+    <header>
+
+        <%- include('../layouts/header') %> 
+
+    </header>
+
+    <main>
+
+        <section class="totalStatistics">
+
+            <h3>
+                Total Confirmed: <%= data.TotalConfirmed %> 
+            </h3>
+
+            <h3>
+                Total Recovered: <%= data.TotalRecovered %> 
+            </h3>
+
+            <h3>
+                Total Deaths: <%= data.TotalDeaths %> 
+            </h3>
+
+        </section>
+
+
+        <section class="form">
+
+            <h3>
+                Search For Specific Country
+            </h3>
+
+            <form action="/searchCorona" method="GET">
+
+                <input type="text" name="search_query" placeholder="Enter Country Name"> <br>
+
+                <button type="submit">Search</button>
+
+            </form>
+
+        </section>
+
+    </main>
+    
+</body>
+</html>

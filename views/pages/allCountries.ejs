@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>All countries</title>
+
+    <%- include('../layouts/head') %> 
+
+</head>
+
+<body>
+
+    <header>
+        <%- include('../layouts/header') %> 
+
+    </header>
+
+    <main>
+        <div class="wrap">
+            <% data.forEach(e=>{ %>
+
+                <div class="container">
+                    <h3>
+                        <%= e.country %>
+                    </h3>
+
+
+                    <h3>
+                        Confirmed: <%= e.confirmed %>
+                    </h3>
+
+                    <h3>
+                        Recovered: <%= e.recovered %> 
+
+                    </h3>
+
+                    <h3>
+                        Total Deaths: <%= e.deaths %> 
+                    </h3>
+
+                    <h3>
+
+                       Date: <%= e.date %> 
+
+                    </h3>
+
+                    <form action="/saveData" method="post">
+                        <input type="hidden" name="country" value="<%= e.country %>">
+                        <input type="hidden" name="confirmed" value="<%= e.confirmed %>">
+                        <input type="hidden" name="recovered" value="<%= e.recovered %>">
+                        <input type="hidden" name="deaths" value="<%= e.deaths %>">
+                        <input type="hidden" name="date" value="<%= e.date %>">
+                        <button type="submit">Save Data</button>
+
+                    </form>
+                </div>
+
+                <%}) %>
+        </div>
+    </main>
+
+</body>
+
+</html>
