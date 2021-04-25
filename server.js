@@ -110,7 +110,10 @@ function homeHandler(req,res){
 
 function searchHandler(req,res){
     let search_query= req.query.search_query;
-    let url = `https://api.covid19api.com/country/${search_query}/status/confirmed?from=2020-03-01T00:00:00Z&to=2020-04-01T00:00:00Z`;
+    let from=req.query.from;
+    let to= req.query.to;
+    console.log(req.query)
+    let url = `https://api.covid19api.com/country/${search_query}/status/confirmed?from=${from}&to=${to}`;
     console.log(req.query)
     superagent.get(url).then(data=>{
         let dataBody=data.body;
